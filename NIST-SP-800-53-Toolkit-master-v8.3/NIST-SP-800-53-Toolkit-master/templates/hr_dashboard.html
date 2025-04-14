@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HR System NIST 800-53 Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='hr_assessment/hr_styles.css') }}">
+    <script defer src="{{ url_for('static', filename='hr_assessment/hr_script.js') }}"></script>
+</head>
+<body>
+    <header> <h2> HR System NIST 800-53 Assessment Dashboard</h2> </header>
+
+<h2>HR Security Assessment</h2>
+
+<!-- Step 1: Show Control Families -->
+<div>
+    <h3>Select Control Family</h3>
+    <ul id="families-list"></ul>
+</div>
+
+<!-- Step 2: Show Controls for Selected Family -->
+<div id="controls-section" style="display: none;">
+    <h3>Controls in <span id="selected-family"></span></h3>
+    <ul id="controls-list"></ul>
+</div>
+
+<!-- Step 3: Show Control Details & Implementation Status -->
+<div id="control-details" style="display: none;">
+    <h3>Control Details</h3>
+    <p><strong>ID:</strong> <span id="control-id"></span></p>
+    <p><strong>Description:</strong> <span id="control-description"></span></p>
+    <label for="implementation-status">Implementation Status:</label>
+    <select id="implementation-status">
+        <option value="implemented">Implemented</option>
+        <option value="partially">Partially Implemented</option>
+        <option value="not_implemented">Not Implemented</option>
+    </select>
+    <button onclick="addToChecklist()">Add to Checklist</button>
+</div>
+
+<!-- Step 4: Checklist Table -->
+<h3>HR Security Checklist</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Control ID</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="checklist-table"></tbody>
+</table>
+
+<!-- Step 5: Generate HR Report -->
+<button onclick="generateHrReport()">Generate HR Report</button>
+<h3>HR Security Report</h3>
+<p id="hr-security-report">Click "Generate HR Report" to view.</p>
+
+<!-- Step 6: Compare with NIST 800-53 -->
+<button onclick="compareHrAssessment()">Compare with NIST 800-53</button>
+<h3>HR Security Score Comparison</h3>
+<ul id="hr-comparison-report">
+    <li>Click "Compare with NIST 800-53" to see differences.</li>
+</ul>
+
+</body>
+</html>

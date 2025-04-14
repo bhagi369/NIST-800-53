@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Compliance Toolkit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='toolkit/toolkit_styles.css') }}">
+    <script defer src="{{ url_for('static', filename='toolkit/toolkit_script.js') }}"></script>
+    <script src="{{ url_for('static', filename='toolkit/performance_metrics.js') }}"></script>
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <h2>Audit Toolkit</h2>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#checklist">Compliance Checklist</a></li>
+                <li><a href="#scoring">Scoring System</a></li>
+                <li><a href="#assessment">Automated Assessment</a></li>
+                <li> <a href="#CaseStudy">Select Case Study</a></li>
+                <li><a href="#report">Generate Report</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <section id="dashboard">
+                <h2>Dashboard</h2>
+                <p>Overview of Compliance Status</p>
+                <div id="compliance-score">Compliance Score: N/A</div>
+            </section>
+            
+            <section id="checklist">
+               <h2>Compliance Checklist</h2>
+                <!-- Search box for filtering controls -->
+                <input type="text" id="checklistSearch" placeholder="Search controls..." class="checklist-search-box">
+                <button onclick="triggerChecklistSearch()" class="btn">Search</button>
+                <ul id="controls-list" class="controls-list"></ul>
+
+                <button class="btn" onclick="submitCompliance()">Check Compliance</button>
+
+                <div id="domain-progress">
+                    <h3>Category Breakdown</h3>
+                   <div id="category-breakdown"></div>
+                </div>
+            </section>
+            
+            <!-- <section id="scoring">
+                <h2>Scoring System</h2>
+                <p>Scoring is calculated based on selected controls.</p>
+            </section> -->
+            
+           <!-- <section id="assessment">
+                <h2>Automated Compliance Assessment</h2>
+                <p>Analyze controls and generate risk insights.</p>
+            </section> -->
+                <!-- <select id="caseSelector" class="btn" onchange="loadCaseStudy()">
+                    <option value="">-- Select a Case Study --</option>
+                    <option value="healthcare">Healthcare Hospital</option>
+                    <option value="solarwinds">SolarWinds Breach (2020)</option>
+                </select> -->
+
+
+
+
+            <section id="assessment">
+                     <h2>Automated Compliance Assessment</h2>
+                    <p>Select your implemented controls and generate a risk insight below.</p>
+                     <button class="btn" onclick="generateAssessment()">Run Assessment</button>
+                    <div id="assessment-result" style="margin-top: 20px;"></div>
+            </section>
+            
+            <section id="report">
+                <h2>Generate Report</h2>
+                <button class="btn" onclick="generateReport()">Download CSV Report</button>
+            </section>
+        </div>
+    </div>
+    <section id="case-study">
+         <h2>Case Study Selector</h2>
+         <p>Select a real-world scenario to simulate compliance assessment:</p>
+          <select id="caseSelector" class="btn" onchange="loadCaseStudy()">
+             <option value="">-- Select Case Study --</option>
+             <option value="solarwinds">SolarWinds Breach (2020)</option>
+             <option value="healthcare">Healthcare Hospital</option>
+          </select>
+          <div id="caseSummary" class="case-summary-box"></div>
+          <!-- 🔽 Inserted Performance Metrics Section -->
+        <section id="performance">
+          <h2>Toolkit Performance Metrics</h2>
+          <div id="performanceMetrics"></div>
+        </section>
+    </section>
+
+
+
+   <!-- <script src="script.js"></script> -->
+   <script>
+       function triggerChecklistSearch() {
+       const filter = document.getElementById('checklistSearch').value.toLowerCase();
+       const listItems = document.querySelectorAll('#controls-list li');
+
+       listItems.forEach(item => {
+       const label = item.textContent.toLowerCase();
+      item.style.display = label.includes(filter) ? '' : 'none';
+    });
+  }
+  </script>
+
+</body>
+</html>

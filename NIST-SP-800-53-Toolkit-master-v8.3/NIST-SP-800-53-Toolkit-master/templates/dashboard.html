@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NIST 800-53 Control Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<header>
+    NIST 800-53 Control Dashboard
+</header>
+
+<main>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Control Families</h2>
+            <ul id="families-list"></ul>
+        </div>
+
+        <div class="content">
+            <h2 id="controls-heading">Controls</h2>
+            <ul id="controls-list"></ul>
+
+            <div id="control-details" class="hidden">
+                <h3 id="selected-control-title"></h3>
+                <h4 id="selected-sub-control-title"></h4>
+
+                <div class="side-by-side">
+                    <div class="control-box">
+                        <h3>Control Statements</h3>
+                        <div id="statements-content">Select a control to view its statements.</div>
+                    </div>
+
+                    <div class="control-box">
+                        <h3>Supplemental Guidance</h3>
+                        <div id="guidance-content">Select a control to view supplemental guidance.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="report-container">
+        <button id="generate-report">Generate Report</button>
+        <div id="report-section">
+            <h2>Security Report</h2>
+            <p id="report-content">Click the button to generate a report.</p>
+            <h3>Recommendations</h3>
+            <p id="recommendation-content">Recommendations will appear here.</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>
