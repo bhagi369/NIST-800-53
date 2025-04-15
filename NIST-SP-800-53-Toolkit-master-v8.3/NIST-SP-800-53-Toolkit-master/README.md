@@ -1,8 +1,6 @@
 # NIST-SP-800-53-Toolkit
 
-Sick of &#8984;-F-ing my way through PDFs, I took up the task of migrating the information in NIST SP 800-53 Revision 4 into more navigable formats.
-
-**_Coming soon_**: I'm building out a simple, browser-based way to navigate all the information here. A web app-ified version of the docs, if you will. Stay tuned for a link (once I figure out hosting), and a separate repo with all the code.
+A lightweight, web-based toolkit designed to help organizations assess their compliance with the NIST SP 800-53 cybersecurity framework. Built as part of a capstone project for ISN 2615, the toolkit includes features like control checklists, compliance scoring, case study simulations, and CSV reporting.
 
 ## What you'll find here
 
@@ -57,3 +55,30 @@ A bunch of CSVs and SQL files for getting all the data into various databases. T
 ### The script
 
 This is **quick and dirty** Ruby/Nokogiri script to tear the XML file from NIST into pieces. The NIST schema is sort of wonky (e.g., the way numbers and statements are listed throughout is not optimal), so the script makes some assumptions. As a result, I had to go back and fill some of the gaps (e.g., references to families in the "controls" table) after the fact. It's not perfect, but meh, it works.
+
+### Features
+Dynamic NIST 800-53 Control Checklist
+Weighted Risk Scoring (Low=2, Mod=3, High=5)
+Real-time Risk Category & Recommendations
+Case Study Simulations (e.g., SolarWinds Breach)
+CSV Export for Audit Documentation
+Live Search Filter and UI Dashboard
+
+### Technologies Used
+Frontend: HTML, CSS, JavaScript
+Backend: Python Flask
+Database: SQLite (preloaded with NIST controls)
+Testing: Pytest, Selenium
+Dev Tools: VS Code, Postman, Chrome DevTools
+
+### Project Structure
+
+├── app.py                    # Flask server & API routes
+├── static/
+│   ├── toolkit_script.js     # JS logic (scoring, UI updates)
+│   ├── toolkit_styles.css    # Styling
+├── templates/
+│   └── toolkit.html          # Main dashboard UI
+├── 800-53-controls.sqlite    # SQLite database of NIST controls
+├── test_api.py               # API testing (Pytest)
+├── test_ui.py                # UI testing (Selenium)
