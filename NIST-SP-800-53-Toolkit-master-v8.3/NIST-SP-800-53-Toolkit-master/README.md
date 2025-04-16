@@ -69,7 +69,7 @@ Frontend: HTML, CSS, JavaScript
 Backend: Python Flask
 Database: SQLite (preloaded with NIST controls)
 Testing: Pytest, Selenium
-Dev Tools: VS Code, Postman, Chrome DevTools
+Dev Tools: Pycharm, Postman, Chrome DevTools
 
 ### Project Structure
 
